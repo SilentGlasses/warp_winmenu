@@ -1,8 +1,17 @@
 Windows Registry Editor Version 5.00
 
-[HKEY_CLASSES_ROOT\Directory\Background\shell\Open in Warp]
+; Adds "Open in Warp Terminal" to the right-click menu for directories
+[HKEY_CLASSES_ROOT\Directory\shell\Warp]
 @="Open in Warp Terminal"
-"Icon"="C:\\Program Files\\Warp\\Warp.exe"
+"Icon"="C:\\Program Files\\Warp\\warp.exe"
 
-[HKEY_CLASSES_ROOT\Directory\Background\shell\Open in Warp\command]
-@="\"C:\\Program Files\\Warp\\Warp.exe\" run --directory \"%V\""
+[HKEY_CLASSES_ROOT\Directory\shell\Warp\command]
+@="\"C:\\Program Files\\Warp\\warp.exe\" \"warp://action/new_tab?path=%1\""
+
+; Adds "Open in Warp Terminal" to the right-click menu for files
+[HKEY_CLASSES_ROOT\*\shell\Warp]
+@="Open in Warp Terminal"
+"Icon"="C:\\Program Files\\Warp\\warp.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\Warp\command]
+@="\"C:\\Program Files\\Warp\\warp.exe\" \"warp://action/new_tab?path=%1\""
