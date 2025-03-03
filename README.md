@@ -1,18 +1,6 @@
-```
-   ▗▖ ▗▖ ▗▄▖ ▗▄▄▖ ▗▖ ▗▖    ▗▄▄▄▖▗▖  ▗▖     
-   ▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌▐▌▗▞▘      █  ▐▛▚▖▐▌     
-   ▐▌ ▐▌▐▌ ▐▌▐▛▀▚▖▐▛▚▖       █  ▐▌ ▝▜▌     
-   ▐▙█▟▌▝▚▄▞▘▐▌ ▐▌▐▌ ▐▌    ▗▄█▄▖▐▌  ▐▌     
-▗▄▄▖ ▗▄▄▖  ▗▄▖  ▗▄▄▖▗▄▄▖ ▗▄▄▄▖ ▗▄▄▖ ▗▄▄▖
-▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌▐▌   ▐▌ ▐▌▐▌   ▐▌   ▐▌   
-▐▛▀▘ ▐▛▀▚▖▐▌ ▐▌▐▌▝▜▌▐▛▀▚▖▐▛▀▀▘ ▝▀▚▖ ▝▀▚▖
-▐▌   ▐▌ ▐▌▝▚▄▞▘▝▚▄▞▘▐▌ ▐▌▐▙▄▄▖▗▄▄▞▘▗▄▄▞▘
-!!!!! NOT READY FOR PRODUCTION USE !!!!!
-```
+# Warp Win Menu
 
-## Warp Win Menu
-
-This repository provides two methods to add a **"Open in Warp Terminal"** option to the Windows right-click menu.
+This repository provides a method to add a **"Open in Warp Terminal"** option to the Windows right-click menu that will then open a new tab in Warp.
 
 ## Features
 
@@ -21,15 +9,17 @@ This repository provides two methods to add a **"Open in Warp Terminal"** option
 - Supports both **Registry (.reg)** and **PowerShell (.ps1)** installation.
 - Opens Warp Terminal in a **new tab** at the selected directory.
 
----
+## Installation
 
-## Installation Methods
-
-1. Execute the PowerShell script directly from GitHub using this command:
+- Ensure PowerShell Allows Script Execution, open PowerShell as Administrator and run:
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force
+```
+- Run the script from PowerShell:
 ```
 irm "https://raw.githubusercontent.com/SilentGlasses/warp_winmenu/main/open_warp.reg" | Out-File "$env:TEMP\open_warp.reg"; Start-Process regedit -ArgumentList "/s $env:TEMP\open_warp.reg" -Wait -NoNewWindow
 ```
-2. **Done!** Right-click inside any folder and select **"Open in Warp Terminal"**.
+- **Done!** Right-click inside any Directory or file and select **"Open in Warp Terminal"**.
 
 #### How it works:
 
