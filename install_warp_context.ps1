@@ -1,10 +1,19 @@
-$path = "C:\Program Files\Warp\Warp.exe"
-$regPath = "HKCU:\Software\Classes\Directory\Background\shell\OpenWarp"
-$commandPath = "HKCU:\Software\Classes\Directory\Background\shell\OpenWarp\command"
+$path = "C:\Program Files\Warp\warp.exe"
 
-New-Item -Path $regPath -Force | Out-Null
-Set-ItemProperty -Path $regPath -Name "(default)" -Value "Open in Warp Terminal"
-Set-ItemProperty -Path $regPath -Name "Icon" -Value "$path"
+# For directories
+$regPathDir = "HKCR:\Directory\shell\Warp"
+$commandPathDir = "HKCR:\Directory\shell\Warp\command"
+New-Item -Path $regPathDir -Force | Out-Null
+Set-ItemProperty -Path $regPathDir -Name "(default)" -Value "Open in Warp Terminal"
+Set-ItemProperty -Path $regPathDir -Name "Icon" -Value "$path"
+New-Item -Path $commandPathDir -Force | Out-Null
+Set-ItemProperty -Path $commandPathDir -Name "(default)" -Value "`"$path`" `"$path`" \"warp://action/new_tab?path=%1\""
 
-New-Item -Path $commandPath -Force | Out-Null
-Set-ItemProperty -Path $commandPath -Name "(default)" -Value "`"$path`" --new-tab --working-directory `"%V`""
+# For files
+$regPathFile = "HKCR:\*\shell\Warp"
+$commandPathFile = "HKCR:\*\shell\Warp\command"
+New-Item -Path $regPathFile -Force | Out-Null
+Set-ItemProperty -Path $regPathFile -Name "(default)" -Value "Open in Warp Terminal"
+Set-ItemProperty -Path $regPathFile -Name "Icon" -Value "$path"
+New-Item -Path $commandPathFile -Force | Out-Null
+Set-ItemProperty -Path $commandPathFile -Name "(default)" -Value "`"$path`" \"warp://action/new_tab?path=%1\""
