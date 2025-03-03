@@ -5,4 +5,4 @@ Windows Registry Editor Version 5.00
 "Icon"="C:\\Program Files\\Warp\\Warp.exe"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\Open in Warp\command]
-@="\"C:\\Program Files\\Warp\\Warp.exe\" --new-tab --working-directory \"%V\""
+@="\"C:\\Program Files\\Warp\\Warp.exe\" run --directory \"%V\""
